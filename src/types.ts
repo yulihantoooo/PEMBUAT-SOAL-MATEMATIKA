@@ -52,6 +52,8 @@ export interface WorksheetSettings {
   examTitle: string;
   subject: string;
   teacherName: string;
+  supervisorName: string;
+  supervisorTitle: string;
   classGrade: string;
   timeLimit: string;
   includeAnswerKey: boolean;

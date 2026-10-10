@@ -18,11 +18,13 @@ export const WorksheetView: React.FC<Props> = ({
   onAddToWorksheet,
 }) => {
   const [settings, setSettings] = useState<WorksheetSettings>({
-    schoolName: 'SMP / SMA NEGERI 1 CERDAS MANDIRI',
+    schoolName: 'CABANG DINAS PENDIDIKAN WILAYAH X - SMA BINAAN',
     examTitle: 'LEMBAR KERJA SISWA (LKS) & ASESMEN MATEMATIKA VISUAL',
-    subject: 'Matematika Terapan',
-    teacherName: 'Tim Guru Matematika',
-    classGrade: 'VIII / IX / X',
+    subject: 'Matematika SMA (Geometri & Aljabar)',
+    teacherName: 'Tim MGMP Matematika SMA',
+    supervisorName: 'YULIANTO HARSONO',
+    supervisorTitle: 'Pengawas SMA Cabdin X',
+    classGrade: 'X / XI / XII SMA',
     timeLimit: '60 Menit',
     includeAnswerKey: true,
     includeExplanations: true,
@@ -152,6 +154,26 @@ export const WorksheetView: React.FC<Props> = ({
             />
           </div>
 
+          <div>
+            <label className="block font-semibold text-slate-700 mb-1">Pengawas / Pembina:</label>
+            <input
+              type="text"
+              value={settings.supervisorName}
+              onChange={(e) => setSettings({ ...settings, supervisorName: e.target.value })}
+              className="w-full bg-white border border-slate-300 rounded-lg p-2 font-bold text-indigo-900"
+            />
+          </div>
+
+          <div>
+            <label className="block font-semibold text-slate-700 mb-1">Jabatan Pengawas:</label>
+            <input
+              type="text"
+              value={settings.supervisorTitle}
+              onChange={(e) => setSettings({ ...settings, supervisorTitle: e.target.value })}
+              className="w-full bg-white border border-slate-300 rounded-lg p-2"
+            />
+          </div>
+
           <div className="md:col-span-3 flex flex-wrap gap-4 pt-2 border-t border-slate-200">
             <label className="flex items-center gap-2 cursor-pointer font-medium text-slate-700">
               <input
@@ -181,12 +203,18 @@ export const WorksheetView: React.FC<Props> = ({
         {/* Printable Official Header (KOP SURAT) */}
         <div className="border-b-2 border-slate-900 pb-4 mb-6">
           <div className="text-center space-y-1">
-            <h1 className="text-base font-extrabold uppercase tracking-wider text-slate-900">
+            <p className="text-[11px] font-bold text-slate-600 uppercase tracking-widest">
+              PEMBINAAN & PENGAWASAN SMA • CABANG DINAS PENDIDIKAN WILAYAH X
+            </p>
+            <h1 className="text-base font-black uppercase tracking-wider text-slate-900">
               {settings.schoolName}
             </h1>
             <h2 className="text-sm font-bold text-slate-800 uppercase tracking-wide">
               {settings.examTitle}
             </h2>
+            <div className="inline-block px-3 py-0.5 my-1 bg-slate-100 rounded border border-slate-300 text-[11px] font-bold text-slate-800">
+              Pengawas: {settings.supervisorName} ({settings.supervisorTitle})
+            </div>
             <p className="text-xs text-slate-600 font-medium">
               Mata Pelajaran: <b>{settings.subject}</b> • Waktu: <b>{settings.timeLimit}</b> • Pengampu: <b>{settings.teacherName}</b>
             </p>
@@ -259,6 +287,33 @@ export const WorksheetView: React.FC<Props> = ({
                 </div>
               </div>
             ))}
+
+            {/* Official Signature Endorsement Block */}
+            <div className="mt-12 pt-6 border-t border-slate-300 grid grid-cols-2 text-center text-xs text-slate-800 break-inside-avoid">
+              <div>
+                <p className="text-slate-500">Mengetahui & Membina,</p>
+                <p className="font-bold text-slate-900">{settings.supervisorTitle}</p>
+                <div className="h-20 flex items-center justify-center">
+                  <span className="text-[10px] text-slate-400 italic">[ Tanda Tangan & Cap Supervisi ]</span>
+                </div>
+                <p className="font-extrabold text-slate-900 underline tracking-wide">
+                  {settings.supervisorName}
+                </p>
+                <p className="text-[10px] text-slate-600 font-medium">Pengawas Sekolah Ahli Madya</p>
+              </div>
+
+              <div>
+                <p className="text-slate-500">Diverifikasi & Disahkan,</p>
+                <p className="font-bold text-slate-900">Guru Mata Pelajaran Matematika</p>
+                <div className="h-20 flex items-center justify-center">
+                  <span className="text-[10px] text-slate-400 italic">[ Tanda Tangan Guru ]</span>
+                </div>
+                <p className="font-extrabold text-slate-900 underline tracking-wide">
+                  {settings.teacherName}
+                </p>
+                <p className="text-[10px] text-slate-600 font-medium">NIP. ........................................</p>
+              </div>
+            </div>
           </div>
         )}
 

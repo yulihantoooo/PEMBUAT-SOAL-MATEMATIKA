@@ -189,6 +189,34 @@ export default function App() {
         worksheetCount={worksheetProblemIds.length}
       />
 
+      {/* Official Supervisor Attribution Banner */}
+      <div className="print:hidden bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 border-b border-indigo-900/50 py-3 px-4 shadow-sm">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
+          <div className="flex items-center gap-3 text-left">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-amber-600 flex items-center justify-center text-slate-950 font-black text-sm shadow-md ring-2 ring-amber-300/30 shrink-0">
+              YH
+            </div>
+            <div>
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="text-sm font-extrabold text-white tracking-wide">
+                  YULIANTO HARSONO
+                </span>
+                <span className="text-[10px] font-bold bg-amber-400 text-slate-950 px-2 py-0.5 rounded-full uppercase tracking-wider">
+                  Pengawas SMA Cabdin X
+                </span>
+              </div>
+              <p className="text-xs text-slate-300">
+                Pengawas Sekolah Ahli Madya • Inisiator & Pembina Media Pembelajaran Matematika Visual
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center gap-2 text-[11px] text-amber-200 bg-white/5 border border-amber-300/20 px-3 py-1.5 rounded-xl">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>Cabang Dinas Pendidikan Wilayah X</span>
+          </div>
+        </div>
+      </div>
+
       {/* Main View Router */}
       <main className="flex-1">
         {currentTab === 'explore' && (
@@ -234,15 +262,20 @@ export default function App() {
       </main>
 
       {/* Footer (Hidden when printing worksheet) */}
-      <footer className="print:hidden bg-white border-t border-slate-200 py-6 mt-12 text-center text-xs text-slate-500">
+      <footer className="print:hidden bg-white border-t border-slate-200 py-6 mt-12 text-center text-xs text-slate-600">
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <div className="flex items-center gap-2">
-            <Compass className="w-4 h-4 text-indigo-600" />
-            <span className="font-bold text-slate-800">MathemaVisual</span>
-            <span>— Pembuat Soal Matematika Visual & Laboratorium Simulasi Interaktif</span>
+          <div className="flex flex-col sm:flex-row items-center gap-2">
+            <div className="flex items-center gap-2">
+              <Compass className="w-4 h-4 text-indigo-600" />
+              <span className="font-extrabold text-slate-900">MathemaVisual</span>
+            </div>
+            <span className="hidden sm:inline text-slate-300">•</span>
+            <span className="font-bold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded border border-indigo-200">
+              Inisiasi & Pembinaan: YULIANTO HARSONO (Pengawas SMA Cabdin X)
+            </span>
           </div>
-          <p className="text-slate-400">
-            Dibuat untuk guru, pendidik, dan pelajar matematika Indonesia
+          <p className="text-slate-500">
+            Didedikasikan untuk guru & siswa SMA di lingkungan Cabang Dinas Pendidikan Wilayah X
           </p>
         </div>
       </footer>
