@@ -1,0 +1,6 @@
+{
+  "name": "MathemaVisual - Pembuat Soal Matematika Visual & Simulasi",
+  "description": "Aplikasi pembuat soal matematika interaktif lengkap dengan gambar diagram geometris, simulasi lab matematika real-time, dan generator AI.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
